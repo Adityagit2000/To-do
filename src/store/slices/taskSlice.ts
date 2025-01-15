@@ -5,7 +5,7 @@ const initialState: TaskState = {
   tasks: [],
   loading: false,
   error: null,
-  activeFilter: 'all', // Add this to track active filter
+  activeFilter: 'all',
 };
 
 export const fetchWeather = async () => {
@@ -74,6 +74,12 @@ const taskSlice = createSlice({
     setActiveFilter: (state, action) => {
       state.activeFilter = action.payload;
     },
+    updateTask: (state, action) => {
+      const index = state.tasks.findIndex(task => task.id === action.payload.id);
+      if (index !== -1) {
+        state.tasks[index] = action.payload;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -91,5 +97,13 @@ const taskSlice = createSlice({
   },
 });
 
-export const { toggleTask, deleteTask, updateTaskPriority, toggleImportant, setActiveFilter } = taskSlice.actions;
+export const {
+  toggleTask,
+  deleteTask,
+  updateTaskPriority,
+  toggleImportant,
+  setActiveFilter,
+  updateTask
+} = taskSlice.actions;
+
 export default taskSlice.reducer;
