@@ -11,6 +11,7 @@ import {
   Users,
   Plus,
 } from 'lucide-react';
+import profileImage from './Profile.jpg';
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -33,11 +34,11 @@ export const Sidebar = () => {
     <div className="w-64 bg-gray-800 h-screen p-6 flex flex-col">
       {/* Profile Section */}
       <div className="flex flex-col items-center mb-8">
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces"
-          alt="Profile"
-          className="w-16 h-16 rounded-full mb-2 object-cover"
-        />
+      <img
+  src="/Profile.jpg"
+  alt="Profile"
+  className="w-16 h-16 rounded-full mb-2 object-cover"
+/>
         <h2 className="text-white text-lg font-medium">Hey, {user?.name}</h2>
       </div>
 
